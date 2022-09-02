@@ -13,9 +13,7 @@ class AuthController extends Controller
 
     public function register(RegisterAuthRequest $request): RedirectResponse
     {
-        $user = $request->validated();
-        $user['password'] = bcrypt($request->validated()['password']);
-        User::create($user);
+        User::create($request->validated());
 
         return redirect('/');
     }
