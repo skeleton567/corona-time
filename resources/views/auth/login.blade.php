@@ -3,7 +3,8 @@
         <x-welcome-message message="back">
             <p class="mt-2 lg:mt-4 text-xs lg:text-xl text-gray-400">Welcome back! Please enter your details</p>
             
-            <form class="w-full lg:w-96" action="">
+            <form class="w-full lg:w-96" action="{{route('login')}}" method="post">
+                @csrf
                 <x-form.input name="username" placeholder="Enter unique username or email"/> 
                 <x-form.input name="password" type="password" placeholder="Fill in password"/>
 
