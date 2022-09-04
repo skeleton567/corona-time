@@ -12,8 +12,8 @@
 
                 
                     <div class="my-6 flex text-xs items-center space-x-2">
-                        <input class="block border border-gray-300 rounded" type="checkbox" name="remember_token" id="remember_token">
-                        <label class=" font-bold" for="remember_token">Rememeber this device</label>
+                        <input class="block border border-gray-300 rounded" type="checkbox" name="remember" id="remember">
+                        <label class=" font-bold" for="remember">Rememeber this device</label>
                     </div>
            
                 <x-form.button>Sign up</x-form.button> 

@@ -16,7 +16,7 @@ class LoginAuthRequest extends FormRequest
         return [
             //
             'username' => ['required', 'min:3'],
-            'password' => ['required']
+            'password' => ['required'],
         ];
     }
 }
