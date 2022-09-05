@@ -30,28 +30,10 @@ class GetCovidStatistics extends Command
      */
     public function handle()
     {
-        Country::truncate();
         CovidStatistic::truncate();
         $countries = json_decode(Http::accept('application/json')->get('https://devtest.ge/countries'));
-        $newCountry = Country::create([
-            'code' => 'WO',
-        ]);
-        $newCountry->setTranslations('country', [
-            'en' => 'Worldwide',
-            'ka' => 'მსოფლიო',
-        ]);
-        $newCountry->save();
 
         foreach ($countries as $country) {
-            $newCountry = Country::create([
-                'code' => $country->code,
-            ]);
-            $newCountry->setTranslations('country', [
-                'en' => $country->name->en,
-                'ka' => $country->name->ka,
-            ]);
-            $newCountry->save();
-
             $statistic = json_decode(Http::accept('application/json')->post(
                 'https://devtest.ge/get-country-statistics',
                 [
@@ -68,19 +50,10 @@ class GetCovidStatistics extends Command
             ]);
         }
 
-        $confirmed = 0;
-        $recovered = 0;
-        $deaths = 0;
-        foreach (CovidStatistic::all() as $statistic) {
-            $confirmed += $statistic->confirmed;
-            $recovered += $statistic->recovered;
-            $deaths += $statistic->deaths;
-        }
-
         CovidStatistic::create([
-            'confirmed' =>  $confirmed,
-            'recovered' => $recovered,
-            'deaths' =>  $deaths,
+            'confirmed' => CovidStatistic::sum('confirmed'),
+            'recovered' => CovidStatistic::sum('recovered'),
+            'deaths' =>  CovidStatistic::sum('deaths'),
             'country_code' => 'WO'
 
         ]);
