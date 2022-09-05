@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Auth\Events\Registered;
 
 class AuthController extends Controller
 {
@@ -15,9 +16,9 @@ class AuthController extends Controller
 
     public function register(RegisterAuthRequest $request): RedirectResponse
     {
-        User::create($request->validated());
-
-        return redirect('/');
+        $user =User::create($request->validated());
+        event(new Registered($user));
+        return redirect(route('verification.notice'));
     }
 
     public function login(LoginAuthRequest $request): RedirectResponse
@@ -35,6 +36,7 @@ class AuthController extends Controller
                 ]);
         }
 
+        auth()->attempt($credentials, (bool)$request->has('remember'));
 
         session()->regenerate();
         return redirect('/');

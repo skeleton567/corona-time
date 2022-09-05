@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LoginAuthRequest extends FormRequest
@@ -16,7 +17,7 @@ class LoginAuthRequest extends FormRequest
         return [
             //
             'username' => ['required', 'min:3'],
-            'password' => ['required']
+            'password' => ['required'],
         ];
     }
 }
