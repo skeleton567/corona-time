@@ -18,10 +18,6 @@ class AuthController extends Controller
     {
         $user =User::create($request->validated());
         event(new Registered($user));
-        if ($request->remember) {
-            auth()->attempt($request->validated(), $request->remember) ;
-        }
-        auth()->login($user);
         return redirect(route('verification.notice'));
     }
 
@@ -39,9 +35,8 @@ class AuthController extends Controller
                 'username' => __('text.username_incorect')
                 ]);
         }
-        if ($request->remember) {
-            auth()->attempt($credentials, $request->remember) ;
-        }
+
+        auth()->attempt($credentials, (bool)$request->has('remember'));
 
         session()->regenerate();
         return redirect('/');

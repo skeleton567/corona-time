@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 Route::view('/login', 'auth.login')->name('auth.login');
 Route::view('/register', 'auth.register')->name('auth.register');
 Route::view('/email/verify', 'auth.verification-notice')->name('verification.notice');
+Route::view('/email/verified', 'auth.verified')->name('auth.verified');
 
 Route::get('/email/verify/{id}/{hash}', [MailingController::class, 'verify'])->name('verification.verify');
 

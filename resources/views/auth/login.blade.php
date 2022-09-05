@@ -8,7 +8,7 @@
                 <x-form.input name="username" placeholder="Enter unique username or email"/> 
                 <x-form.input name="password" type="password" placeholder="Fill in password"/>
 
-                <div class="flex justify-between text-xs w-full my-6">
+                <div class="flex justify-between text-xs w-full mt-6">
                     <div class="flex items-center space-x-2">
                         <input class="block border border-gray-300 rounded" type="checkbox" name="remember" id="remember">
                         <label class=" font-bold" for="remember_token">Rememeber this device</label>
