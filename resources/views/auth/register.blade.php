@@ -11,10 +11,7 @@
                 <x-form.input name="password_confirmation" label="Repeat Password" type="password" placeholder="Repeat password"/>
 
                 
-                    <div class="my-6 flex text-xs items-center space-x-2">
-                        <input class="block border border-gray-300 rounded" type="checkbox" name="remember_token" id="remember_token">
-                        <label class=" font-bold" for="remember_token">Rememeber this device</label>
-                    </div>
+                    
            
                 <x-form.button>Sign up</x-form.button> 
                 <x-form.redirect text="Already have and accoun?" link="{{route('auth.login')}}">Log in</x-form.redirect>
