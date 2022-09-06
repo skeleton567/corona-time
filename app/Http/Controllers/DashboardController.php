@@ -12,12 +12,24 @@ class DashboardController extends Controller
 {
     //
 
-    public function statistics(): View
+    public function statistics(Request $request): View
     {
+        if ($request->search) {
+            $countries = Country::query()
+            ->where('country->ka', 'LIKE', "%{$request->search}%")
+            ->orWhere('country->en', 'LIKE', "%{$request->search}%")
+            ->orWhere('code', 'LIKE', "%{$request->search}%")
+            ->get();
+
+            return view('dashboard.statistics', [
+                'countries' => $countries
+                ]);
+        }
         return view('dashboard.statistics', [
             'countries' => Country::all()
             ]);
     }
+
 
     public function world(): View
     {

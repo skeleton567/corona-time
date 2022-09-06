@@ -59,7 +59,7 @@ class MailingController extends Controller
             function ($user, $password) {
                 $user->forceFill([
                     'password' => $password
-                ]);
+                ])->setRememberToken(null);
 
                 $user->save();
 
