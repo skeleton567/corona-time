@@ -14,25 +14,17 @@
    
    <div class="container mx-auto items-center mr-2 flex justify-between">
     <button id="toggle" class="md:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
+        <x-button-svg/>
     </button>
 
-    <nav id="nav" class="fixed top-20 bottom-0 -right-full w-16 md:w-auto md:static transition-all">
-        <ul class="md:flex">
+    <nav id="nav" class="fixed top-20 bottom-0 -right-full w-20 md:w-60 md:static transition-all">
+        <ul class="md:flex items-center">
             <li>
-                <a class="block p-3 font-bold" href="#">Kyle</a>
+                <p class="block p-3 text-xs md:text-base font-bold">{{auth()->user()->username}}</p>
             </li>
-            @auth
             <li>
-                <a class="block p-3 md:border-l-2 border-gray-100" href="#">Log out </a>
+                <x-form.inline-form class="block p-3 text-xs md:text-base md:border-l-2 border-gray-100" method="POST" route="{{route('logout')}}">Log out</x-form.inline-form>
             </li>
-            @else
-            <li>
-                <a class="block p-3 md:border-l-2 border-gray-100" href="#">Log in</a>
-            </li>
-            @endauth
         </ul>
     </nav>
 </div>
