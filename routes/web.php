@@ -30,12 +30,15 @@ Route::middleware(['guest'])->group(function () {
     Route::view('/register', 'auth.register')->name('auth.register');
     Route::view('/email/verify', 'auth.verification-notice')->name('verification.notice');
     Route::view('/email/verified', 'auth.verified')->name('auth.verified');
+    Route::view('/forgot-password', 'auth.forgot-password')->name('password.request');
+    Route::view('/password-updated', 'auth.password-updated')->name('password.updated');
     Route::post('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/login', [AuthController::class, 'login'])->name('login');
-    Route::get('/email/verify/{id}/{hash}', [MailingController::class, 'verify'])->name('verification.verify');
-    Route::view('/forgot-password', 'auth.forgot-password')->name('password.request');
-    Route::post('/forgot-password', [MailingController::class, 'forgotPassword'])->name('password.email');
-    Route::get('/reset-password/{token}', [MailingController::class, 'passwordReset'])->name('password.reset');
-    Route::post('/reset-password', [MailingController::class, 'passwordUpdate'])->name('password.update');
-    Route::view('/password-updated', 'auth.password-updated')->name('password.updated');
+
+    Route::controller(MailingController::class)->group(function () {
+        Route::get('/email/verify/{id}/{hash}', 'verify')->name('verification.verify');
+        Route::post('/forgot-password', 'forgotPassword')->name('password.email');
+        Route::get('/reset-password/{token}', 'passwordReset')->name('password.reset');
+        Route::post('/reset-password', 'passwordUpdate')->name('password.update');
+    });
 });

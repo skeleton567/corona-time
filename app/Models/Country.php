@@ -16,7 +16,7 @@ class Country extends Model
 
     protected $guarded =['id'];
 
-    public function CovidStatistic(): HasOne
+    public function covidStatistic(): HasOne
     {
         return $this->hasOne(CovidStatistic::class, 'country_code', 'code');
     }

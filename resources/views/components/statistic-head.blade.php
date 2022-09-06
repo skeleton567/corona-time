@@ -8,7 +8,7 @@
 
     <section class="mt-6 flex border-b-2 border-gray-100 space-x-6">
         <a href="{{route('dashboard.world')}}" class="text-sm pb-4 {{Route::currentRouteName() === 'dashboard.world' ? 'font-bold border-b-[2px] border-b-black' : '' }}">Worldwide</a>
-        <a href="{{route('dashboard.statistics')}}" class="text-sm pb-4 {{Route::currentRouteName() === 'dashboard.statistics' ? 'font-bold border-b-[2px] border-b-black' : '' }}">By country</a>
+        <a href="{{route('dashboard.statistics')}}" class="text-sm pb-4 {{Route::currentRouteName() === 'dashboard.statistics'  ? 'font-bold border-b-[2px] border-b-black' : '' }}">By country</a>
     </section>
 
     {{$slot}}
