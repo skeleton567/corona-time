@@ -37,8 +37,12 @@ class AuthController extends Controller
         }
 
         auth()->attempt($credentials, (bool)$request->has('remember'));
+        return redirect(route('dashboard.world'));
+    }
 
-        session()->regenerate();
-        return redirect('/');
+    public function logout(): RedirectResponse
+    {
+        auth()->logout();
+        return redirect(route('login'));
     }
 }

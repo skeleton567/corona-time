@@ -14,7 +14,7 @@
                         <label class=" font-bold" for="remember_token">Rememeber this device</label>
                     </div>
 
-                    <a class="text-blue-700 font-semibold" href="#">Forgot Password?</a>
+                    <a class="text-blue-700 font-semibold" href="{{route('password.request')}}">Forgot Password?</a>
                 </div>
            
                 <x-form.button>Log In</x-form.button> 
