@@ -22,7 +22,7 @@ class DashboardController extends Controller
         ->get();
 
         if ($request->country) {
-            $countries = $countries->sortBy('country', Country::count(), json_decode($request->country));
+            $countries = $countries->sortBy('country', Country::count(), json_decode($request->country))->reverse();
         } elseif ($request->deaths) {
             $countries = $countries->sortBy('covidStatistic.deaths', Country::count(), json_decode($request->deaths));
         } elseif ($request->confirmed) {
@@ -31,10 +31,8 @@ class DashboardController extends Controller
             $countries = $countries->sortBy('covidStatistic.recovered', Country::count(), json_decode($request->recovered));
         }
 
-
-
         return view('dashboard.statistics', [
-            'countries' => $countries
+            'countries' =>  $countries
             ]);
     }
 

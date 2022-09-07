@@ -7,7 +7,7 @@
 
         <section class="bg-blue-100 rounded-2xl grow h-48 lg:h-full grid place-items-center col-span-2">
             <img src="images/graph-yellow.png" alt="">
-            <h3 lass="text-lg lg:text-xl">Bew Case</h3>
+            <h3 lass="text-lg lg:text-xl">New Case</h3>
             <p class="text-2xl lg:text-4xl font-bold text-blue-800">{{$statistics[0]->confirmed}}</p>
         </section>
 

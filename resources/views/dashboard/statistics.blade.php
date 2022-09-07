@@ -12,10 +12,10 @@
 
     <table class="w-full block mt-2 bg-gray-100">
       <tr class="h-14 md:text-left">
-       <x-table-head name="country" value_desc="true" value_asc="false">Location</x-table-head>
-       <x-table-head name="confirmed">New case</x-table-head>
-       <x-table-head name="recovered">Recovered</x-table-head>
-       <x-table-head name="deaths">Death</x-table-head>
+       <x-table-head name="country">Location</x-table-head>
+       <x-table-head name="confirmed" >New case</x-table-head>
+       <x-table-head name="recovered" >Recovered</x-table-head>
+       <x-table-head name="deaths" >Death</x-table-head>
       </tr>
     </form>
         <table class="w-full block max-h-[60vh] md:max-h-[50vh] overflow-auto">
