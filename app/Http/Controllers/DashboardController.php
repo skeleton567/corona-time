@@ -22,13 +22,13 @@ class DashboardController extends Controller
         ->get();
 
         if ($request->country) {
-            $countries = Config::get('app.locale') === 'en' ? Country::orderBy('country->en', $request->country)->get() : Country::orderBy('country->ka', $request->country)->get();
+            $countries = $countries->sortBy('country', Country::count(), json_decode($request->country));
         } elseif ($request->deaths) {
-            $countries = $countries->sortBy('covidStatistic.deaths', 105, json_decode($request->deaths));
+            $countries = $countries->sortBy('covidStatistic.deaths', Country::count(), json_decode($request->deaths));
         } elseif ($request->confirmed) {
-            $countries = $countries->sortBy('covidStatistic.confirmed', 105, json_decode($request->confirmed));
+            $countries = $countries->sortBy('covidStatistic.confirmed', Country::count(), json_decode($request->confirmed));
         } elseif ($request->recovered) {
-            $countries = $countries->sortBy('covidStatistic.recovered', 105, json_decode($request->recovered));
+            $countries = $countries->sortBy('covidStatistic.recovered', Country::count(), json_decode($request->recovered));
         }
 
 

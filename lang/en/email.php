@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'subject'=>'Vefify Email'
+    'subject_verify'=>'Vefify Email',
+    'subject_reset'=>'Reset Password'
 ];
