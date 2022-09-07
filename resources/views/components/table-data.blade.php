@@ -1,1 +1,1 @@
-<td class="text-sm md:pl-10 md:w-80  pl-2 w-20 text-left">{{$slot}}</td>
+<td class="text-xs md:text-sm md:pl-10 md:w-80  pl-2 w-20 text-left">{{$slot}}</td>
