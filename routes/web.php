@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 Route::middleware(['language'])->group(function () {
-    Route::middleware(['auth'])->group(function () {
+    Route::middleware(['auth','verified'])->group(function () {
         Route::get('/country', [DashboardController::class, 'statistics'])->name('dashboard.statistics');
         Route::get('/', [DashboardController::class, 'world'])->name('dashboard.world');
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
