@@ -3,14 +3,14 @@
     <img src="images/coronatime.svg" alt="coronatime">
   
 <div class="lg:w-80  flex justify-between items-center">
-    <div class="flex border-right border-">
-        <select name="" id=""
-        class="appearance-none ">
-            <option value="">English</option>
-            <option value="">Georgian</option>
+    <form action="{{route('language.change')}}" class="flex border-right border-" method="post">
+        @csrf
+        <select name="locale" class="appearance-none " onchange="this.form.submit()">
+            <option {{ app()->getLocale() === 'en' ? 'selected' : '' }} name="locale" value="en">English</option>
+            <option {{ app()->getLocale() === 'ka' ? 'selected' : '' }} name="locale" value="ka">Georgian</option>
         </select>
         <img class="w-2 h-2 translate-y-2 mr-10 md:mr-12" src="images/arrow.svg" alt="">
-    </div>
+    </form>
    
    <div class="container mx-auto items-center mr-2 flex justify-between">
     <button id="toggle" class="md:hidden">

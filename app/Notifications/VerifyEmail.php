@@ -19,7 +19,7 @@ class VerifyEmail extends VerifyEmailBase
             return call_user_func(static::$toMailCallback, $notifiable);
         }
         return (new MailMessage())
-            ->subject(Lang::get(__('email.subject')))
+            ->subject(Lang::get(__('email.subject_verify')))
             ->line(Lang::get('Please click the button below to verify your email address.'))
             ->action(
                 Lang::get('Confirm Account'),
