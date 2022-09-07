@@ -37,7 +37,15 @@ class AuthController extends Controller
                 ]);
         }
 
+
         auth()->attempt($credentials, (bool)$request->has('remember'));
+
+        if (!auth()->user()->email_verified_at) {
+            auth()->logout();
+            throw ValidationException::withMessages([
+                'username' => 'You should verify your email first'
+                ]);
+        }
         return redirect(route('dashboard.world'));
     }
 
