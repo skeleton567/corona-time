@@ -1,3 +1,3 @@
 <x-success-message>
-    You account is confirmed, you can sign in
+    {{__('verify.account_confirmed')}}
 </x-success-message>

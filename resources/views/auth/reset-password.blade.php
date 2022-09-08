@@ -1,7 +1,7 @@
 
-<x-reset-password button="Save Changes" route="{{route('password.update')}}">
+<x-reset-password button="{{__('passwords.save_changes')}}" route="{{route('password.update')}}">
     <input type="hidden" name="token" value="{{$token}}">
     <input type="hidden" name="email" value="{{request('email')}}">
-    <x-form.input name="password" label="New Password" type="password" placeholder="Fill in password"/>
-    <x-form.input name="password_confirmation" label="Repeat Password" type="password" placeholder="Repeat password"/>
+    <x-form.input label="{{__('login.password')}}" name="password" type="password" placeholder="{{__('login.password_placeholder')}}"/>
+    <x-form.input name="password_confirmation" label="{{__('register.repeat_password')}}" type="password" placeholder="{{__('register.repeat_password')}}"/>
 </x-reset-password>

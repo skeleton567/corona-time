@@ -17,7 +17,7 @@
                     <a class="text-blue-700 font-semibold text-xs" href="{{route('password.request')}}">{{__('login.forgot_password')}}</a>
                 </div>
            
-                <x-form.button>Log In</x-form.button> 
+                <x-form.button>{{__('login.log_in')}}</x-form.button> 
 
                 <x-form.redirect text="{{__('login.no_account')}}" link="{{route('auth.register')}}"> {{__('login.sign_up')}}</x-form.redirect>
             </form>

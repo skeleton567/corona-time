@@ -13,7 +13,7 @@
             <form class="mt-11 flex flex-col h-[calc(100vh-150px)] lg:h-[calc(100vh-250px)] lg:w-96 justify-between lg:block lg:mt-36" action="{{$route}}" method="post">
                 @csrf
             <div class="w-full lg:mb-14">
-                <h1 class="text-center font-bold text-xl lg:text-2xl mb-4 lg:mb-8">Reset Password</h1>
+                <h1 class="text-center font-bold text-xl lg:text-2xl mb-4 lg:mb-8">{{__('passwords.reset_password')}}</h1>
                     {{$slot}}
             </div>
     

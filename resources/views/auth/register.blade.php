@@ -1,20 +1,21 @@
 <x-layout>
     <div class="flex items-start justify-center p-3 lg:m-0 lg:p-0 lg:h-screen">
-        <x-welcome-message message="to Coronatime">
-            <p class="mt-2 lg:mt-4 text-xs lg:text-xl text-gray-400">Please enter required info to sign up</p>
+        <x-welcome-message message="{{__('register.welcome_coronatime')}}">
+            <p class="mt-2 lg:mt-4 text-xs lg:text-xl text-gray-400">{{__('register.enter_info')}}</p>
             
             <form class="w-full lg:w-96" action="{{route('register')}}" method="post">
                 @csrf
-                <x-form.input name="username" placeholder="Enter unique username"/> 
-                <x-form.input name="email" placeholder="Enter unique email"/> 
-                <x-form.input name="password" type="password" placeholder="Fill in password"/>
-                <x-form.input name="password_confirmation" label="Repeat Password" type="password" placeholder="Repeat password"/>
+                @csrf
+                <x-form.input label="{{__('login.username')}}" name="username" placeholder="{{__('register.register_username_placeholder')}}"/> 
+                <x-form.input label="{{__('register.email')}}" name="email" placeholder="{{__('register.email_placeholder')}}"/> 
+                <x-form.input label="{{__('login.password')}}" name="password" type="password" placeholder="{{__('login.password_placeholder')}}"/>
+                <x-form.input name="password_confirmation" label="{{__('register.repeat_password')}}" type="password" placeholder="{{__('register.repeat_password')}}"/>
 
-                
+               
                     
            
-                <x-form.button>Sign up</x-form.button> 
-                <x-form.redirect text="Already have and accoun?" link="{{route('auth.login')}}">Log in</x-form.redirect>
+                <x-form.button>{{__('register.sign_up')}}</x-form.button> 
+                <x-form.redirect text="{{__('register.have_account')}}" link="{{route('auth.login')}}">{{__('login.log_in')}}</x-form.redirect>
             </form>
            
         </x-welcome-message>
