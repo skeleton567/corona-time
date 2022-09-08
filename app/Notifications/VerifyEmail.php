@@ -22,7 +22,7 @@ class VerifyEmail extends VerifyEmailBase
         return (new MailMessage())
             ->subject(Lang::get(__('email.subject_verify')))
             ->view(
-                'verify-message',
+                'email.verify-message',
                 ['url' => $url]
             );
     }
