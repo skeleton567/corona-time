@@ -6,7 +6,7 @@
     class="appearance-none block w-full px-6 py-4 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none">
     <div class="mt-2">
         @error($name)
-        <p class="text-gray-400 text-sm">{{$message}}</p> 
+        <p class="text-gray-400 text-xs md:text-sm">{{$message}}</p> 
      @enderror
     </div>
    

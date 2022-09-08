@@ -33,17 +33,16 @@ class AuthController extends Controller
 
         if (!auth()->attempt($credentials)) {
             throw ValidationException::withMessages([
-                'username' => __('text.username_incorect')
+                'username' => __('login.username_incorect')
                 ]);
         }
 
 
         auth()->attempt($credentials, (bool)$request->has('remember'));
-
         if (!auth()->user()->email_verified_at) {
             auth()->logout();
             throw ValidationException::withMessages([
-                'username' => 'You should verify your email first'
+                'username' => __('login.verify_first')
                 ]);
         }
         return redirect(route('dashboard.world'));

@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="flex items-start justify-center lg:m-0 lg:p-0 lg:h-screen">
+    <div class="flex items-start justify-center p-3 lg:m-0 lg:p-0 lg:h-screen">
         <x-welcome-message message="to Coronatime">
             <p class="mt-2 lg:mt-4 text-xs lg:text-xl text-gray-400">Please enter required info to sign up</p>
             
