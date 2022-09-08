@@ -18,13 +18,12 @@ class VerifyEmail extends VerifyEmailBase
         if (static::$toMailCallback) {
             return call_user_func(static::$toMailCallback, $notifiable);
         }
+        $url = $this->verificationUrl($notifiable);
         return (new MailMessage())
             ->subject(Lang::get(__('email.subject_verify')))
-            ->line(Lang::get('Please click the button below to verify your email address.'))
-            ->action(
-                Lang::get('Confirm Account'),
-                $this->verificationUrl($notifiable)
-            )
-            ->line(Lang::get('If you did not create an account, no further action is required.'));
+            ->view(
+                'verify-message',
+                ['url' => $url]
+            );
     }
 }
