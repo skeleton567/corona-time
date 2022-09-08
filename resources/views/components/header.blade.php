@@ -7,7 +7,7 @@
         @csrf
         <select name="locale" class="appearance-none " onchange="this.form.submit()">
             <option {{ app()->getLocale() === 'en' ? 'selected' : '' }} name="locale" value="en">English</option>
-            <option {{ app()->getLocale() === 'ka' ? 'selected' : '' }} name="locale" value="ka">Georgian</option>
+            <option {{ app()->getLocale() === 'ka' ? 'selected' : '' }} name="locale" value="ka">ქართული</option>
         </select>
         <img class="w-2 h-2 translate-y-2 mr-10 md:mr-12" src="images/arrow.svg" alt="">
     </form>
@@ -17,13 +17,13 @@
         <x-button-svg/>
     </button>
 
-    <nav id="nav" class="fixed top-20 h-24 w-36 -right-full max-w-20 md:w-72 md:static md:h-full transition-all shadow-md md:max-w-full md:shadow-none">
+    <nav id="nav" class="fixed top-[84px] h-24 w-36 -right-full max-w-20 md:w-72 md:static md:h-full transition-all shadow-md md:max-w-full md:shadow-none z-50 bg-white">
         <ul class="md:w-full md:flex items-center justify-between">
             <li>
                 <p class="block p-3 text-xs md:text-base font-bold w-full break-all md:break-normal text-center md:text-left">{{auth()->user()->username}}</p>
             </li>
             <li>
-                <x-form.inline-form class="block p-3 text-xs md:text-base md:border-l-2 border-gray-100 w-full" method="POST" route="{{route('logout')}}">Log out</x-form.inline-form>
+                <x-form.inline-form class="block p-3 text-xs md:text-base md:border-l-2 border-gray-100 w-full" method="POST" route="{{route('logout')}}">{{__('dashboard.log_out')}}</x-form.inline-form>
             </li>
         </ul>
     </nav>

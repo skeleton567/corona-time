@@ -43,7 +43,7 @@ class MailingController extends Controller
         );
 
         return $status === Password::RESET_LINK_SENT
-                    ? redirect(route('verification.notice'))
+                    ? redirect(route('reset.notice'))
                     : back()->withErrors(['email' => __($status)]);
     }
 

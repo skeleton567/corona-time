@@ -13,7 +13,7 @@
                 </div>
                 
                 <div class="w-full lg:w-96">
-                    <a href="{{route('login')}}"><x-form.button>Sign in</x-form.button></a>
+                    <a href="{{route('login')}}"><x-form.button>{{__('login.log_in')}}</x-form.button></a>
                 </div>
                 
                 

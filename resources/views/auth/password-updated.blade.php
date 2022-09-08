@@ -1,3 +1,3 @@
 <x-success-message>
-    You password has been updated successfully
+    {{__('passwords.reset')}}
 </x-success-message>

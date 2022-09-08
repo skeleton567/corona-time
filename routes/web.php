@@ -30,6 +30,7 @@ Route::middleware(['language'])->group(function () {
         Route::view('/login', 'auth.login')->name('auth.login');
         Route::view('/register', 'auth.register')->name('auth.register');
         Route::view('/email/verify', 'auth.verification-notice')->name('verification.notice');
+        Route::view('/reset-password/notice', 'auth.reset-notice')->name('reset.notice');
         Route::view('/email/verified', 'auth.verified')->name('auth.verified');
         Route::view('/forgot-password', 'auth.forgot-password')->name('password.request');
         Route::view('/password-updated', 'auth.password-updated')->name('password.updated');

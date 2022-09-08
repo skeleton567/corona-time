@@ -1,1 +1,1 @@
-<td class="text-xs md:text-sm md:pl-10 md:w-80  pl-2 w-20 text-left">{{$slot}}</td>
+<td {{$attributes->merge(['class'=>"text-xs md:text-sm md:pl-10 md:w-80  pl-2 w-20 text-left md:text-center"])}} class="">{{$slot}}</td>
