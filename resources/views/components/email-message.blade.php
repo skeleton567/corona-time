@@ -109,7 +109,7 @@
         
             <img src="https://i.im.ge/2022/09/08/OfzTNW.email-image.png" class="logo" alt="Logo">
             <h1 >{{$title}}</h1>
-            <p style=";">Click this button to {{$action}}</p>
+            <p style=";">{{__('email.click_button')}} {{$action}}</p>
             
             <button >
                 <a href="{{$url}}">
