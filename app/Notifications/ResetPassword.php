@@ -20,7 +20,7 @@ class ResetPassword extends ResetPasswordBase
         return (new MailMessage())
         ->subject(Lang::get(__('email.subject_reset')))
         ->view(
-            'reset-message',
+            'email.reset-message',
             ['url' => $url]
         );
     }
