@@ -72,27 +72,6 @@ And now you should provide **.env** file all the necessary environment variables
 
 >DB_PASSWORD=*****
 
-#
-**MAIL:**
->MAIL_MAILER=*****
-
->MAIL_HOST=*****
-
->MAIL_PORT=*****
-
->MAIL_USERNAME=*****
-
->MAIL_PASSWORD=*****
-
->MAIL_PASSWORD=*****
-
->MAIL_ENCRYPTION=*****
-
->MAIL_FROM_ADDRESS=*****
-
->MAIL_FROM_NAME=*****
-
-
 ##### Now, you should be good to go!
 
 
