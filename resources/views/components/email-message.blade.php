@@ -93,12 +93,13 @@
             cursor: pointer;
             outline: inherit;
             font-size: 14px;
+            text-transform: uppercase;
             }
 
             a{
                 color: white !important;
                 text-decoration: none; 
-                text-transform: uppercase;
+                
             }
 
             }
@@ -111,11 +112,11 @@
             <h1 >{{$title}}</h1>
             <p style=";">{{__('email.click_button')}} {{$action}}</p>
             
-            <button >
-                <a href="{{$url}}">
+            <a href="{{$url}}"><button >
+               
                     {{$slot}}
-                </a>
-            </button>
+                
+                </button></a>
     
         
         
