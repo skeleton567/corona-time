@@ -41,21 +41,31 @@ class GetCovidStatistics extends Command
                 ]
             ));
 
-            CovidStatistic::create([
+            $newStatistic = CovidStatistic::create([
                 'confirmed' =>  $statistic->confirmed,
                 'recovered' => $statistic->recovered,
                 'deaths' => $statistic->deaths,
-                'country_code' => $statistic->code
 
             ]);
+            $newStatistic->setTranslations('country', [
+                'en' => $country->name->en,
+                'ka' => $country->name->ka,
+            ]);
+
+            $newStatistic->save();
         }
 
-        CovidStatistic::create([
+        $newStatistic = CovidStatistic::create([
             'confirmed' => CovidStatistic::sum('confirmed'),
             'recovered' => CovidStatistic::sum('recovered'),
             'deaths' =>  CovidStatistic::sum('deaths'),
-            'country_code' => 'WO'
-
         ]);
+
+        $newStatistic->setTranslations('country', [
+            'en' => 'Worldwide',
+            'ka' => 'მსოფლიო',
+        ]);
+
+        $newStatistic->save();
     }
 }

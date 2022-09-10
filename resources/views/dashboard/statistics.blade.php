@@ -19,12 +19,12 @@
       </tr>
     </form>
         <table class="w-full block max-h-[60vh] md:max-h-[50vh] overflow-auto">
-        @foreach ($countries as $country)
+        @foreach ($statistics as $statistic)
         <tr class="text-center md:text-left h-16">
-          <x-table-data  class="md:pl-0 md:w-52" >{{$country->country}}</x-table-data>
-          <x-table-data >{{$country->covidStatistic->confirmed}}</x-table-data>
-          <x-table-data >{{$country->covidStatistic->recovered}}</x-table-data>
-          <x-table-data >{{$country->covidStatistic->deaths}}</x-table-data>
+          <x-table-data  class="md:pl-0 md:w-52" >{{$statistic->country}}</x-table-data>
+          <x-table-data >{{$statistic->confirmed}}</x-table-data>
+          <x-table-data >{{$statistic->recovered}}</x-table-data>
+          <x-table-data >{{$statistic->deaths}}</x-table-data>
         </tr>
         @endforeach
       </table>
