@@ -17,7 +17,7 @@ return new class () extends Migration {
             $table->integer('confirmed');
             $table->integer('recovered');
             $table->integer('deaths');
-            $table->string('country_code');
+            $table->json('country')->nullable();
             $table->timestamps();
         });
     }
