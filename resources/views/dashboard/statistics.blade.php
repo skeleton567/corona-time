@@ -19,14 +19,16 @@
       </tr>
     </form>
         <table class="w-full block max-h-[60vh] md:max-h-[50vh] overflow-auto">
-        @foreach ($statistics as $statistic)
+        @forelse ($statistics as $statistic)
         <tr class="text-center md:text-left h-16">
           <x-table-data  class="md:pl-0 md:w-52" >{{$statistic->country}}</x-table-data>
           <x-table-data >{{$statistic->confirmed}}</x-table-data>
           <x-table-data >{{$statistic->recovered}}</x-table-data>
           <x-table-data >{{$statistic->deaths}}</x-table-data>
         </tr>
-        @endforeach
+        @empty
+            
+        @endforelse
       </table>
     
     </x-statistic-head>

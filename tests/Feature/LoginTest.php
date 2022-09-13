@@ -105,4 +105,12 @@ class LoginTest extends TestCase
 
         $this->assertGuest();
     }
+
+    public function test_user_can_logout()
+    {
+        $user = User::factory()->create(['email_verified_at' => now()]);
+
+        $this->actingAs($user)->post(route('logout'));
+        $this->assertGuest();
+    }
 }
