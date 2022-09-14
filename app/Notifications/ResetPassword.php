@@ -11,11 +11,8 @@ use Illuminate\Auth\Notifications\ResetPassword as ResetPasswordBase;
 
 class ResetPassword extends ResetPasswordBase
 {
-    public function toMail($notifiable)
+    public function toMail($notifiable): MailMessage
     {
-        if (static::$toMailCallback) {
-            return call_user_func(static::$toMailCallback, $notifiable);
-        }
         $url = $this->resetUrl($notifiable);
         return (new MailMessage())
         ->subject(Lang::get(__('email.subject_reset')))

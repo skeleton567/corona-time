@@ -16,6 +16,26 @@
         <include>
             <directory suffix=".php">./app</directory>
         </include>
+        <exclude> 
+            <directory> 
+            ./app/Providers 
+            </directory> 
+            <file> 
+            ./app/Console/Kernel.php 
+            </file> 
+            <file> 
+            ./app/Http/Middleware/Authenticate.php
+            </file> 
+            <file>
+            ./app/Http/Middleware/RedirectIfAuthenticated.php 
+            </file> 
+            <file>
+            ./app/Http/Middleware/TrustHosts.php 
+            </file> 
+            <file> 
+            ./app/Http/Controllers/AuthController.php
+            </file> 
+            </exclude>
     </coverage>
     <php>
         <env name="APP_ENV" value="testing"/>
@@ -29,3 +49,4 @@
         <env name="TELESCOPE_ENABLED" value="false"/>
     </php>
 </phpunit>
+

@@ -113,4 +113,11 @@ class LoginTest extends TestCase
         $this->actingAs($user)->post(route('logout'));
         $this->assertGuest();
     }
+
+    public function test_auth_user_cannot_see_login_page()
+    {
+        $user = User::factory()->create(['email_verified_at' => now()]);
+
+        $this->actingAs($user)->get(route('login'))->assertRedirect(route('dashboard.world'));
+    }
 }

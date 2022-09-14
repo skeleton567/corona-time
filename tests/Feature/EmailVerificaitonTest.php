@@ -68,6 +68,10 @@ class EmailVerificaitonTest extends TestCase
             'password_confirmation' => 'password',
         ]);
         $user = User::find(1);
-        Notification::assertSentTo($user, VerifyEmail::class);
+        Notification::assertSentTo($user, VerifyEmail::class, function ($notification, $channels) use ($user): bool {
+            $mailData = $notification->toMail($user);
+            $this->assertStringContainsString("Click this button to confirm your email", $mailData->render());
+            return true;
+        });
     }
 }

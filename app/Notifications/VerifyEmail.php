@@ -13,11 +13,8 @@ use Illuminate\Auth\Notifications\VerifyEmail as VerifyEmailBase;
 
 class VerifyEmail extends VerifyEmailBase
 {
-    public function toMail($notifiable)
+    public function toMail($notifiable): MailMessage
     {
-        if (static::$toMailCallback) {
-            return call_user_func(static::$toMailCallback, $notifiable);
-        }
         $url = $this->verificationUrl($notifiable);
         return (new MailMessage())
             ->subject(Lang::get(__('email.subject_verify')))
