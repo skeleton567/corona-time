@@ -47,7 +47,7 @@ class PasswordResetTest extends TestCase
 
         $this->post(route('password.request'), ['email' => $user->email]);
 
-        Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user) {
+        Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user): bool {
             $this->get(route('password.reset', [ 'token' => $notification->token]))->assertStatus(200);
             $mailData = $notification->toMail($user);
 
@@ -65,7 +65,7 @@ class PasswordResetTest extends TestCase
 
         $this->post(route('password.request'), ['email' => $user->email]);
 
-        Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user) {
+        Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user): bool {
             $this->post(route('password.update'), [
                 'token' => $notification->token,
                 'email' => $user->email,
@@ -85,7 +85,7 @@ class PasswordResetTest extends TestCase
 
             $this->post(route('password.request'), ['email' => $user->email]);
 
-            Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user) {
+            Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user): bool {
                 $this->post(route('password.update'), [
                     'token' => 'invalid-token',
                     'email' => $user->email,
@@ -113,7 +113,7 @@ class PasswordResetTest extends TestCase
 
             $this->post(route('password.request'), ['email' => $user->email]);
 
-            Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user) {
+            Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user): bool {
                 $this->post(route('password.update'), [
                     'token' => $notification->token,
                     'email' => $user->email,
@@ -124,7 +124,7 @@ class PasswordResetTest extends TestCase
                 return true;
             });
 
-            Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user) {
+            Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user): bool {
                 $this->post(route('password.update'), [
                     'token' => $notification->token,
                     'email' => $user->email,
@@ -135,7 +135,7 @@ class PasswordResetTest extends TestCase
                 return true;
             });
 
-            Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user) {
+            Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user): bool {
                 $this->post(route('password.update'), [
                     'token' => $notification->token,
                     'email' => $user->email,

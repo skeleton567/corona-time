@@ -20,16 +20,16 @@ class ConsoleTest extends TestCase
     use RefreshDatabase;
     public function test_covid_statistics_can_be_fetched_from_api_and_summed()
     {
-        // $this->artisan('get:covidStatistics');
-        // $this->assertDatabaseHas('covid_statistics', [
-        //     'country->en' => 'Afghanistan'
-        // ]);
-        // $this->assertDatabaseHas('covid_statistics', [
-        //     'country->en' => 'Zimbabwe'
-        // ]);
-        // $this->assertDatabaseHas('covid_statistics', [
-        //     'country->en' => 'Worldwide'
-        // ]);
+        $this->artisan('get:covidStatistics');
+        $this->assertDatabaseHas('covid_statistics', [
+            'country->en' => 'Afghanistan'
+        ]);
+        $this->assertDatabaseHas('covid_statistics', [
+            'country->en' => 'Zimbabwe'
+        ]);
+        $this->assertDatabaseHas('covid_statistics', [
+            'country->en' => 'Worldwide'
+        ]);
     }
 
     public function test_covid_statistics_fetch_is_scheduled()

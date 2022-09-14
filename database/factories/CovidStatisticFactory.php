@@ -14,9 +14,9 @@ class CovidStatisticFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
-        return [
+        return  [
             'confirmed' => rand(0, 99999),
             'recovered' => rand(0, 99999),
             'deaths' =>  rand(0, 99999),
