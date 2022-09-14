@@ -98,4 +98,11 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'passwor',
         ])->assertSessionHasErrors('password');
     }
+
+    public function test_auth_user_cannot_see_register_page()
+    {
+        $user = User::factory()->create(['email_verified_at' => now()]);
+
+        $this->actingAs($user)->get(route('register'))->assertRedirect(route('dashboard.world'));
+    }
 }
