@@ -1,0 +1,12 @@
+
+    {
+        "id": 1,
+        "country": "Afghanistan",
+        "code": "AF",
+        "confirmed": 4618,
+        "recovered": 1600,
+        "critical": 1311,
+        "deaths": 2425,
+        "created_at": "2022-02-13T18:17:01.000000Z",
+        "updated_at": "2022-09-25T00:00:03.000000Z"
+      }
