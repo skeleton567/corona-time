@@ -67,5 +67,6 @@ class GetCovidStatistics extends Command
         ]);
 
         $newStatistic->save();
+        $this->info('Statistics were fetched seccesfully!');
     }
 }
