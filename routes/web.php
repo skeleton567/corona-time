@@ -6,8 +6,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MailingController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,11 +32,12 @@ Route::middleware(['language'])->group(function () {
         Route::view('/email/verified', 'auth.verified')->name('auth.verified');
         Route::view('/forgot-password', 'auth.forgot-password')->name('password.request');
         Route::view('/password-updated', 'auth.password-updated')->name('password.updated');
-        Route::post('/register', [AuthController::class, 'register'])->name('register');
-        Route::post('/login', [AuthController::class, 'login'])->name('login');
-
-        Route::controller(MailingController::class)->group(function () {
+        Route::controller(AuthController::class)->group(function () {
+            Route::post('/register', 'register')->name('register');
+            Route::post('/login', 'login')->name('login');
             Route::get('/email/verify/{id}/{hash}', 'verify')->name('verification.verify');
+        });
+        Route::controller(MailingController::class)->group(function () {
             Route::post('/forgot-password', 'forgotPassword')->name('password.email');
             Route::get('/reset-password/{token}', 'passwordReset')->name('password.reset');
             Route::post('/reset-password', 'passwordUpdate')->name('password.update');
