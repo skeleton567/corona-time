@@ -4,11 +4,9 @@ namespace Tests\Feature;
 
 use App\Models\CovidStatistic;
 use App\Models\User;
-use Database\Factories\CovidStatisticFactory;
-use Database\Factories\CovidStatisticsFactory;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+
 use Tests\TestCase;
 
 class DashboardTest extends TestCase
